@@ -1,0 +1,13 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Pass all requests to Node.js app (cPanel will handle this automatically)
+# This file is mainly for custom redirects if needed
+
+# Force HTTPS (optional - uncomment if you want to force SSL)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Handle trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
